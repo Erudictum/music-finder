@@ -15,9 +15,17 @@ formEnter.addEventListener('click', (event) => {
 })
 
 const fetchData = (term) => {
-    const URL = `https://api.lyrics.ovh/suggest/${term}`
+    const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${term}`
 
-    fetch(URL)
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '3f960e2f61mshdba9a57677b2db8p1cc9fdjsn181a8e14efc0',
+            'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+        }
+    };
+
+    fetch(URL, options)
         .then(response => response.json())
         .then(data => insertSongToList(data))
 }
@@ -93,3 +101,4 @@ const playPreview = (event) => {
 }
 
 // https://api.lyrics.ovh/suggest/aquarela
+// https://cors-anywhere.herokuapp.com/corsdemo
