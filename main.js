@@ -34,7 +34,6 @@ fetchData(searchTerm)
 
 const getNextSongs = (nextSongsUrl) => {
     const URL = `https://cors-anywhere.herokuapp.com/${nextSongsUrl}`
-    // const URL = nextSongsUrl
     console.log(URL);
 
     fetch(URL)
@@ -69,15 +68,15 @@ const insertSongToList = (data) => {
         `
     ).join("")
 
-    if (data.next || data.prev) {
-        nextPrevBtns.innerHTML = `  
-        ${data.prev ? `<div onclick="getNextSongs('${data.prev}')" class="prev-btn" alt="Botão próxima lista">&#9654;&#9654;</div>` : ''}
-        ${data.next ? `<div onclick="getNextSongs('${data.next}')" class="next-btn" alt="Botão próxima lista">&#9654;&#9654;</div>` : ''}
-        `
-    }
-    else {
-        nextPrevBtns.innerHTML = ''
-    }
+    // if (data.next || data.prev) {
+    //     nextPrevBtns.innerHTML = `  
+    //     ${data.prev ? `<div onclick="getNextSongs('${data.prev}')" class="prev-btn" alt="Botão próxima lista">&#9654;&#9654;</div>` : ''}
+    //     ${data.next ? `<div onclick="getNextSongs('${data.next}')" class="next-btn" alt="Botão próxima lista">&#9654;&#9654;</div>` : ''}
+    //     `
+    // }
+    // else {
+    //     nextPrevBtns.innerHTML = ''
+    // }
 }
 
 let audioLink
@@ -99,6 +98,3 @@ const playPreview = (event) => {
 
     audioLink.onended = () => event.target.setAttribute("src", "icons/play.svg")
 }
-
-// https://api.lyrics.ovh/suggest/aquarela
-// https://cors-anywhere.herokuapp.com/corsdemo
